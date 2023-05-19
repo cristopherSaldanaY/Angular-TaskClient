@@ -1,0 +1,62 @@
+<div class="container py-5">
+  <div class="rounded shadow p-5 d-flex">
+
+    <img src="/assets/tasks.svg" alt="" width="250">
+
+    <div>
+      <h3>Bienvenido a mis Tareas</h3>
+      <h5 class="text-secondary">Con esta app podras consultar, crear, actualizar y eliminas las tareas</h5>
+      <hr>
+      <p class="text-muted">
+        Esta app fue desarrollada con Spring Boot, Angular y MongoDB.
+      </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <h3>{{task.id ? 'Editar' : 'Nueva'}} Tarea</h3>
+      <form class="mt-2" (ngSubmit)="saveTask()">
+        <div class="mb-3 form-floating">
+          <input id="name" type="text" placeholder="Nombre" name="name" class="form-control" [(ngModel)]="task.name" autocomplete="off">
+          <label for="name">Nombre</label>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input id="completed" type="checkbox" class="form-check-input" name="completed" [(ngModel)]="task.completed">
+          <label for="completed" class="form-check-label">Completado</label>
+        </div>
+
+        <div class="text-end">
+          <button class="btn btn-primary btn-lg">Guardar</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h3>Lista de Tareas</h3>
+      <div *ngFor="let task of tasks" class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="fw-bold">{{ task.name }}</div>
+            <div class="text-muted">
+              <i class="fa fa-edit cursor-pointer" title="Edit Task" (click)="assignTask(task)"></i>
+              <i class="fa fa-trash ms-2 cursor-pointer" title="Delete Task" (click)="deleteTask(task)"></i>
+            </div>
+          </div>
+
+          <div>
+            <small class="text-success" *ngIf="task.completed; else notCompleted">
+              <i class="fa fa-check-circle"></i> Completado
+            </small>
+
+            <ng-template #notCompleted>
+              <small class="text-muted">
+                <i class="fa fa-clock"></i> Pendiente
+              </small>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

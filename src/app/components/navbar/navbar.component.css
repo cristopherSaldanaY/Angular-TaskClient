@@ -1,0 +1,23 @@
+/* nav*/
+.nav-content{
+  width: 100%;
+  height: 50px;
+  min-width: 370px;
+  background: #f5f5f5;
+  display: flex;
+  justify-content:space-around; /* centra la caja al centro de forma horizontal */
+  align-items: center; /* centra el contenido al centro en forma vertical */
+  border-bottom: 1px solid #EAEAEA;
+
+}
+
+
+.nav-item{
+  font-weight: 800;
+  color: #404040;
+  cursor: pointer;
+}
+
+.nav-item p{
+  margin-top: 15px
+}
