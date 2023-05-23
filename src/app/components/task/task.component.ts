@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Task } from 'src/app/interfaces/task.interface';
 import { AppService } from 'src/app/services/app.service';
 import Swal from 'sweetalert2';
@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit {
     completed: false,
   };
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService, private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     this.fetchAllTasks();
@@ -57,6 +57,14 @@ export class TaskComponent implements OnInit {
     this.task = {
       ...task,
     };
+
+    setTimeout( () => {
+      const nameInput = this.elementRef.nativeElement.querySelector('#name');
+      if(nameInput){
+        nameInput.focus();
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
+    });
   }
 
   deleteTask(task: Task) {
