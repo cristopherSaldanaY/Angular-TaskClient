@@ -1,3 +1,25 @@
 .container {
   min-height: 100vh;
 }
+
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 634px) {
+  .presentation-container{
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .presentation-title{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
