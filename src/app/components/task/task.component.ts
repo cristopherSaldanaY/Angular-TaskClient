@@ -29,6 +29,7 @@ export class TaskComponent implements OnInit {
     this.appService.getAll().subscribe((data: any) => {
       this.tasks = data;
       console.log(data);
+      console.log(this.tasks)
     });
   }
 

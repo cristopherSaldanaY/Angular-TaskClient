@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const API_BASE = 'http://localhost:8080';
+/* const API_BASE = 'http://localhost:8080'; */
+/* const API_BASE = 'http://localhost:4000'; */
+const API_BASE = 'https://node-tasks-api-git-main-cristophersaldanay.vercel.app'
 
 @Injectable({
   providedIn: 'root'
